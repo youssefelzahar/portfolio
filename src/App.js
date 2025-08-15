@@ -6,7 +6,9 @@ import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Dashboard from './components/Dashboard/Dashboard';
-
+import DashboardLogin from './components/Dashboard/DashboardLogin';
+import DashboardAdmin from './components/Dashboard/DashboardAdmin';
+import Experience from './components/Experience';
 function App() {
   return (
     <Router>
@@ -16,7 +18,7 @@ function App() {
           <Link to="/about">About Me</Link>
           <Link to="/projects">Projects</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/experience">Experience</Link>
         </nav>
 
         <main className="main-content">
@@ -25,7 +27,8 @@ function App() {
             <Route path="/about" element={<AboutMe />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<DashboardLogin />} />
+            <Route path="/dashboard/admin" element={<DashboardAdmin />} />
           </Routes>
         </main>
       </div>
