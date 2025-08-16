@@ -9,7 +9,6 @@ const DashboardAdmin = () => {
   const [activeTab, setActiveTab] = useState("projects");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
