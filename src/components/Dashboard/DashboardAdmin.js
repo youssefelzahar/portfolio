@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProjectsManager from './ProjectsManager';
-import ExperienceManager from './ExperienceManager';
-import './Dashboard.css'; // لو عندك ستايلات
+import ProjectsManager from "./ProjectsManager";
+import ExperienceManager from "./ExperienceManager";
+import "./Dashboard.css";
 
 const DashboardAdmin = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("projects");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState(""); // ✅ Added missing state
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      navigate("/dashboard"); // لو مفيش توكن يرجع لل login
+      navigate("/dashboard"); // redirect to login
       return;
     }
 
@@ -27,13 +28,13 @@ const DashboardAdmin = () => {
         return res.json();
       })
       .then((data) => {
-        setMessage(data.message);
+        setMessage(data.message || "Welcome Admin ✅");
         setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
         localStorage.removeItem("token");
-        navigate("/dashboard"); // يرجع لل login
+        navigate("/dashboard");
       });
   }, [navigate]);
 
@@ -51,6 +52,8 @@ const DashboardAdmin = () => {
         <h2>Admin Dashboard</h2>
         <button onClick={handleLogout}>Logout</button>
       </div>
+
+      <div style={{ marginBottom: "10px", color: "green" }}>{message}</div>
 
       <div className="dashboard-tabs">
         <button
