@@ -1,23 +1,14 @@
 import React from 'react';
 import './AboutME.css';
-import '../assets/me.png'
-import ReactRoundedImage from "react-rounded-image"
+import me  from '../assets/me.png'
 
 const AboutMe = () => {
   return (
     <div className="about-container">
       <div className="about-content">
         <h1>About Me</h1>
-        <section className="profile-image-section">
-          <div className="profile-image-container">
-            <ReactRoundedImage
-              image={require("../assets/me.png")}
-              roundedSize={0}
-              imageWidth={200}
-              imageHeight={200}
-            />
-          </div>
-        </section>
+                 <img src={me} alt="Me" className="about-photo" />
+
 
         {/* Professional Summary */}
         

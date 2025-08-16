@@ -35,18 +35,16 @@
 }
 
 .profile-image-container {
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; 
+  object-fit: cover;
+  border: 3px solid #1d4ed8; 
+
+
 }
 
-.profile-image-container:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
+
 
 .about-content h2 {
   font-size: 1.75rem;
