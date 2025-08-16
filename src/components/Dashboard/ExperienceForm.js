@@ -87,11 +87,24 @@ const ExperienceForm = ({ onSubmitSuccess, editingExperience, setEditingExperien
         onChange={(e) => setStartDate(e.target.value)}
         required
       />
-      <input
-        type="date"
-        value={endDate}
-        onChange={(e) => setEndDate(e.target.value)}
-      />
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={endDate === null}
+            onChange={(e) => setEndDate(e.target.checked ? null : '')}
+          />
+          Current Position
+        </label>
+        {endDate !== null && (
+          <input
+            type="date"
+            value={endDate || ''}
+            onChange={(e) => setEndDate(e.target.value)}
+            placeholder="End Date (leave empty for current)"
+          />
+        )}
+      </div>
       <button type="submit">
         {editingExperience ? 'Update' : 'Add'} Experience
       </button>

@@ -26,3 +26,15 @@ def delete_experience(experience_id: int, db: Session = Depends(get_db)):
 def get_experience(db: Session = Depends(get_db)):
     experience = db.query(models.Experiences).all()
     return experience
+@router.put("/{experience_id}", response_model=schemas.Experience)
+def update_experience(experience_id: int, experience: schemas.ExperienceCreate, db: Session = Depends(get_db)):
+    db_experience = db.query(models.Experiences).filter(models.Experiences.id == experience_id).first()
+    if db_experience is None:
+        raise HTTPException(status_code=404, detail="Experience not found")
+    for key, value in experience.dict(exclude={"live_url"}).items():
+        setattr(db_experience, key, value)
+    db.commit()
+    db.refresh(db_experience)
+    return db_experience
+
+
