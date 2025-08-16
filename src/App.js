@@ -9,15 +9,20 @@ import Dashboard from './components/Dashboard/Dashboard';
 import DashboardLogin from './components/Dashboard/DashboardLogin';
 import DashboardAdmin from './components/Dashboard/DashboardAdmin';
 import Experience from './components/Experience';
+import ContactBar from './components/ContactBar';
+import logo from "./assets/ChatGPT Image Aug 16, 2025, 10_01_18 AM.png"; // adjust path if needed
+
 function App() {
   return (
     <Router>
       <div className="App">
         <nav className="nav-menu">
+           <div className="nav-left">
+        <img src={logo} alt="Logo" className="nav-logo" />
+      </div>
           <Link to="/">Home</Link>
           <Link to="/about">About Me</Link>
           <Link to="/projects">Projects</Link>
-          <Link to="/contact">Contact</Link>
           <Link to="/experience">Experience</Link>
         </nav>
 
@@ -26,10 +31,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<DashboardLogin />} />
             <Route path="/dashboard/admin" element={<DashboardAdmin />} />
+
           </Routes>
+                      <ContactBar /> {/* Always visible */}
+
         </main>
       </div>
     </Router>
