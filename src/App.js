@@ -4,8 +4,7 @@ import './App.css';
 import Home from './components/Home';
 import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Dashboard from './components/Dashboard/Dashboard';
+
 import DashboardLogin from './components/Dashboard/DashboardLogin';
 import DashboardAdmin from './components/Dashboard/DashboardAdmin';
 import Experience from './components/Experience';
