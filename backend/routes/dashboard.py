@@ -3,10 +3,7 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from fastapi.responses import JSONResponse
-
-SECRET_KEY = "107164a1e478d0a92745a90047daa96bb32803501168fb55352eb3611bad90e0"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+from config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 router = APIRouter(default_response_class=JSONResponse)
 

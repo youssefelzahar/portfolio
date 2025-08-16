@@ -1,14 +1,27 @@
 import React from 'react';
 import './AboutME.css';
+import '../assets/me.png'
+import ReactRoundedImage from "react-rounded-image"
 
 const AboutMe = () => {
   return (
     <div className="about-container">
       <div className="about-content">
         <h1>About Me</h1>
+        <section className="profile-image-section">
+          <div className="profile-image-container">
+            <ReactRoundedImage
+              image={require("../assets/me.png")}
+              roundedSize={0}
+              imageWidth={200}
+              imageHeight={200}
+            />
+          </div>
+        </section>
 
         {/* Professional Summary */}
-        <section className="about-summary">
+        
+               <section className="about-summary">
           <p>
             Hello! I’m <strong>Youssef Elzahar</strong>, a passionate Full Data Sctientist| Good experience with Machine Learning and Data Science. Completed various projects using different 
 algorithms and datasets. Skilled in Natural Language Processing (NLP), Transformer models, and 
