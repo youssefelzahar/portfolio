@@ -6,7 +6,7 @@ class ExperienceBase(BaseModel):
     description: str
     company: str
     start_date: str
-    end_date: str
+    end_date: Optional[str] = None
 
 class ExperienceCreate(ExperienceBase):
     pass
