@@ -12,7 +12,7 @@ const Experience = () => {
 
   const fetchExperiences = async () => {
     try {
-      const response = await fetch('http://localhost:8000/experiences');
+      const response = await fetch('http://api/experiences');
       if (!response.ok) {
         throw new Error('Failed to fetch experiences');
       }

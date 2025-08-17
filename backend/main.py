@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes import projects, experience, dashboard
 from database import models
 from database.database import engine
+from mangum import Mangum
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -20,7 +21,11 @@ app.add_middleware(
 app.include_router(projects.router)
 app.include_router(dashboard.router)
 app.include_router(experience.router)
+handler = Mangum(app)
 
+@app.get("/api/health")
+def health():
+    return {"status": "ok"}
 # Add this for Vercel
 if __name__ == "__main__":
     import uvicorn
