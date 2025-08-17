@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProjectForm from './ProjectForm';
+import { API_ENDPOINTS } from '../../config/api';
 
 const ProjectsManager = () => {
   const [projects, setProjects] = useState([]);
@@ -11,7 +12,7 @@ const ProjectsManager = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('http://localhost:8000/projects');
+      const response = await fetch(API_ENDPOINTS.projects);
       const data = await response.json();
       setProjects(data);
     } catch (error) {
@@ -22,7 +23,7 @@ const ProjectsManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
-        await fetch(`http://localhost:8000/projects/${id}`, { method: 'DELETE' });
+        await fetch(`${API_ENDPOINTS.projects}/${id}`, { method: 'DELETE' });
         fetchProjects();
       } catch (error) {
         console.error('Error deleting project:', error);
