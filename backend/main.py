@@ -30,3 +30,9 @@ def health():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# Add your production frontend URL to CORS origins
+origins = [
+    "http://localhost:3000",
+    "https://portfolio-frontend-*.vercel.app",  # Your actual frontend URL
+]
