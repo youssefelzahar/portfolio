@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../../config/api';
 
 const ProjectForm = ({ onSubmitSuccess, editingProject, setEditingProject }) => {
   const [title, setTitle] = useState('');
@@ -43,8 +44,8 @@ const ProjectForm = ({ onSubmitSuccess, editingProject, setEditingProject }) => 
 
     const method = editingProject ? 'PUT' : 'POST';
     const url = editingProject
-      ? `http://localhost:8000/projects/${editingProject.id}`
-      : 'http://localhost:8000/projects/';
+      ? `${API_ENDPOINTS.projects}/${editingProject.id}`
+      : API_ENDPOINTS.projects;
 
     await fetch(url, {
       method,

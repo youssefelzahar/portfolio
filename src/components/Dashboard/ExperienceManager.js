@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ExperienceForm from './ExperienceForm';
+import { API_ENDPOINTS } from '../../config/api';
 
 const ExperienceManager = () => {
   const [experiences, setExperiences] = useState([]);
@@ -11,7 +12,7 @@ const ExperienceManager = () => {
 
   const fetchExperiences = async () => {
     try {
-      const response = await fetch('http://localhost:8000/experiences');
+      const response = await fetch(API_ENDPOINTS.experiences);
       const data = await response.json();
       setExperiences(data);
     } catch (error) {
@@ -22,7 +23,7 @@ const ExperienceManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this experience?')) {
       try {
-        await fetch(`http://localhost:8000/experiences/${id}`, {
+        await fetch(`${API_ENDPOINTS.experiences}/${id}`, {
           method: 'DELETE',
         });
         fetchExperiences();
